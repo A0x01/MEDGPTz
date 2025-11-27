@@ -1,0 +1,578 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* MedGPT Light Theme */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-tertiary: #E9ECEF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --border-primary: #E5E7EB;
+  --border-hover: #D1D5DB;
+  --blue-primary: #2563EB;
+  --blue-hover: #3B82F6;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+  
+  /* MedGPT Dark Theme */
+  --bg-primary: #0F0F0F;
+  --bg-secondary: #1F1F1F;
+  --bg-tertiary: #2F2F2F;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B4B4B4;
+  --text-tertiary: #707070;
+  --border-primary: #404040;
+  --border-hover: #505050;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* MedGPT custom colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-border-primary: var(--border-primary);
+  --color-border-hover: var(--border-hover);
+  --color-blue-primary: var(--blue-primary);
+  --color-blue-hover: var(--blue-hover);
+  
+  /* MedQuiz additional colors */
+  --color-text: var(--text-primary);
+  --color-surface: var(--bg-secondary);
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+  --color-primary: #2563EB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeInOut {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-scan {
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-progress {
+  animation: progress 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Rich Text Editor Styles */
+.prose {
+  color: var(--text-primary);
+  max-width: none;
+}
+
+.prose h1 {
+  color: var(--text-primary);
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose h2 {
+  color: var(--text-primary);
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose h3 {
+  color: var(--text-primary);
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  line-height: 1.7;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  line-height: 1.7;
+}
+
+.prose ul.checklist {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.prose ul.checklist li:before {
+  content: "✓ ";
+  color: #10B981;
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose mark {
+  background-color: #FEF08A;
+  padding: 0.125em 0.25em;
+  border-radius: 0.25em;
+}
+
+.dark .prose mark {
+  background-color: #854D0E;
+  color: #FEF08A;
+}
+
+.prose code {
+  background-color: var(--bg-tertiary);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+.prose pre {
+  background-color: var(--bg-tertiary);
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid var(--border-primary);
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.prose .code-block {
+  background-color: var(--bg-tertiary);
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 1px solid var(--border-primary);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  white-space: pre-wrap;
+}
+
+.prose .highlight-box {
+  background-color: #DBEAFE;
+  border-left: 4px solid var(--blue-primary);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.dark .prose .highlight-box {
+  background-color: #1E3A8A;
+  border-left-color: #3B82F6;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+.prose table th,
+.prose table td {
+  padding: 0.75em 1em;
+  border: 1px solid var(--border-primary);
+  text-align: left;
+}
+
+.prose table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prose table tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.prose table tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Perspective for 3D effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Tiptap Editor Styles */
+.tiptap-editor .ProseMirror {
+  outline: none;
+}
+
+.tiptap-editor .ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.tiptap-editor ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tiptap-editor ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tiptap-editor ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+.tiptap-editor ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+
+.tiptap-editor ul[data-type="taskList"] input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Table styles for Tiptap */
+.tiptap-editor table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tiptap-editor table td,
+.tiptap-editor table th {
+  border: 1px solid var(--border-primary);
+  box-sizing: border-box;
+  min-width: 1em;
+  padding: 0.5em;
+  position: relative;
+  vertical-align: top;
+}
+
+.tiptap-editor table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 600;
+  text-align: left;
+}
+
+.tiptap-editor table .selectedCell {
+  background-color: var(--bg-tertiary);
+}
+
+.tiptap-editor .tableWrapper {
+  overflow-x: auto;
+}

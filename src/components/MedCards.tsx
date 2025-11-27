@@ -1,0 +1,1 @@
+export { MedCards } from './medcards';

@@ -46,7 +46,7 @@ export interface PasswordChangeRequest {
   new_password: string;
 }
 
-const BASE_PATH = '/auth';
+const BASE_PATH = '/admin/auth';
 
 export const authApi = {
   /**

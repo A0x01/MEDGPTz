@@ -381,13 +381,15 @@ export function QuizInterfaceAPI({
                         </span>
                       )}
                     </div>
-                    <p className="text-[var(--color-text)] leading-relaxed">
-                      {currentQuestion.title}
-                    </p>
+                    <div
+                      className="text-[var(--color-text)] leading-relaxed quiz-html-content"
+                      dangerouslySetInnerHTML={{ __html: currentQuestion.title }}
+                    />
                     {currentQuestion.additional_text && (
-                      <p className="text-sm text-[var(--color-text-secondary)] mt-2">
-                        {currentQuestion.additional_text}
-                      </p>
+                      <div
+                        className="text-sm text-[var(--color-text-secondary)] mt-2 quiz-html-content"
+                        dangerouslySetInnerHTML={{ __html: currentQuestion.additional_text }}
+                      />
                     )}
                   </div>
                   <button
@@ -448,10 +450,11 @@ export function QuizInterfaceAPI({
                               }`}>
                                 {option.title}
                               </span>
-                              {option.content && (
-                                <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-                                  {option.content}
-                                </p>
+                              {showExplanation && option.content && (
+                                <div
+                                  className="text-sm text-[var(--color-text-secondary)] mt-2 quiz-html-content"
+                                  dangerouslySetInnerHTML={{ __html: option.content }}
+                                />
                               )}
                             </div>
                           </div>
@@ -491,9 +494,10 @@ export function QuizInterfaceAPI({
                 {currentAnswer.explanation && (
                   <>
                     <h4 className="text-sm font-medium text-[var(--color-text)] mb-2">Explanation</h4>
-                    <div className="text-sm text-[var(--color-text)] leading-relaxed mb-4">
-                      {currentAnswer.explanation}
-                    </div>
+                    <div
+                      className="text-sm text-[var(--color-text)] leading-relaxed mb-4 quiz-html-content"
+                      dangerouslySetInnerHTML={{ __html: currentAnswer.explanation }}
+                    />
                   </>
                 )}
 

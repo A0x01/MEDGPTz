@@ -389,12 +389,7 @@ export function QuizInterfaceAPI({
                       className="text-[var(--color-text)] leading-relaxed quiz-html-content"
                       dangerouslySetInnerHTML={{ __html: currentQuestion.title }}
                     />
-                    {currentQuestion.additional_text && (
-                      <div
-                        className="text-sm text-[var(--color-text-secondary)] mt-2 quiz-html-content"
-                        dangerouslySetInnerHTML={{ __html: currentQuestion.additional_text }}
-                      />
-                    )}
+{/* additional_text removed - contained hints/explanations that give away answers */}
                   </div>
                   <button
                     onClick={handleFlag}

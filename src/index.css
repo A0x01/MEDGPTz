@@ -4861,3 +4861,53 @@ html {
     transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
   }
 }
+
+/* Quiz HTML Content - Override inline color styles for dark/light mode */
+.quiz-html-content,
+.quiz-html-content *,
+.quiz-html-content p,
+.quiz-html-content span,
+.quiz-html-content strong,
+.quiz-html-content b,
+.quiz-html-content em,
+.quiz-html-content i,
+.quiz-html-content li {
+  color: inherit !important;
+}
+
+.quiz-html-content {
+  line-height: 1.7;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.quiz-html-content p {
+  margin: 0;
+}
+
+.quiz-html-content p + p {
+  margin-top: 0.75em;
+}
+
+.quiz-html-content strong,
+.quiz-html-content b {
+  font-weight: 600;
+}
+
+.quiz-html-content ul,
+.quiz-html-content ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.quiz-html-content ul {
+  list-style-type: disc;
+}
+
+.quiz-html-content ol {
+  list-style-type: decimal;
+}
+
+.quiz-html-content li {
+  margin: 0.25em 0;
+}

@@ -129,16 +129,20 @@ export interface QuizAttempt {
   id: number;
   user_id: number;
   category_id?: number;
-  specialty_id?: number;
   mode: QuizMode;
   total_questions: number;
+  correct_count?: number;
+  incorrect_count?: number;
+  score?: number;
+  time_spent_seconds?: number;
+  is_completed: boolean;
+  completed_at?: string;
+  started_at: string;
+  // Computed fields from backend
   correct_answers: number;
   wrong_answers: number;
   skipped_answers: number;
   score_percentage: number;
-  time_spent_seconds: number;
-  completed_at?: string;
-  created_at: string;
 }
 
 export interface CategoryProgress {

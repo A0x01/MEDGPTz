@@ -237,28 +237,31 @@ export function MedQuizHomeAPI({ onNavigateToExplorer, onStartQuickQuiz }: MedQu
               <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-6">
                 <h3 className="text-[var(--color-text)] mb-4">Recent Activity</h3>
                 <div className="space-y-3">
-                  {recentAttempts.map(attempt => (
-                    <div
-                      key={attempt.id}
-                      className="flex items-center justify-between py-2 border-b border-[var(--color-border)] last:border-0"
-                    >
-                      <div>
-                        <div className="text-sm text-[var(--color-text)]">
-                          Quiz #{attempt.id}
+                  {recentAttempts.map(attempt => {
+                    const scorePercent = attempt.score_percentage ?? 0;
+                    return (
+                      <div
+                        key={attempt.id}
+                        className="flex items-center justify-between py-2 border-b border-[var(--color-border)] last:border-0"
+                      >
+                        <div>
+                          <div className="text-sm text-[var(--color-text)]">
+                            Quiz #{attempt.id}
+                          </div>
+                          <div className="text-xs text-[var(--color-text-secondary)]">
+                            {attempt.total_questions} questions
+                          </div>
                         </div>
-                        <div className="text-xs text-[var(--color-text-secondary)]">
-                          {attempt.total_questions} questions
+                        <div className={`text-sm font-medium ${
+                          scorePercent >= 80 ? 'text-[var(--color-success)]' :
+                          scorePercent >= 60 ? 'text-[var(--color-warning)]' :
+                          'text-[var(--color-danger)]'
+                        }`}>
+                          {Math.round(scorePercent)}%
                         </div>
                       </div>
-                      <div className={`text-sm font-medium ${
-                        attempt.score_percentage >= 80 ? 'text-[var(--color-success)]' :
-                        attempt.score_percentage >= 60 ? 'text-[var(--color-warning)]' :
-                        'text-[var(--color-danger)]'
-                      }`}>
-                        {Math.round(attempt.score_percentage)}%
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}

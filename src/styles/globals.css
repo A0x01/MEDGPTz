@@ -579,7 +579,32 @@ html {
 
 /* Quiz HTML Content Styling */
 .quiz-html-content {
-  line-height: 1.6;
+  line-height: 1.7;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Override inline color styles for dark/light mode compatibility */
+.quiz-html-content,
+.quiz-html-content *,
+.quiz-html-content p,
+.quiz-html-content span,
+.quiz-html-content strong,
+.quiz-html-content b,
+.quiz-html-content em,
+.quiz-html-content i,
+.quiz-html-content li {
+  color: inherit !important;
+}
+
+/* Ensure text inherits from parent in dark mode */
+.dark .quiz-html-content,
+.dark .quiz-html-content *,
+.dark .quiz-html-content p,
+.dark .quiz-html-content span,
+.dark .quiz-html-content strong,
+.dark .quiz-html-content b {
+  color: inherit !important;
 }
 
 .quiz-html-content p {
@@ -587,24 +612,40 @@ html {
 }
 
 .quiz-html-content p + p {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
 }
 
-.quiz-html-content strong {
+.quiz-html-content strong,
+.quiz-html-content b {
   font-weight: 600;
   color: inherit;
 }
 
-.quiz-html-content em {
+.quiz-html-content em,
+.quiz-html-content i {
   font-style: italic;
 }
 
-.quiz-html-content h3 {
-  font-size: 1.1em;
+.quiz-html-content u {
+  text-decoration: underline;
+}
+
+.quiz-html-content h1,
+.quiz-html-content h2,
+.quiz-html-content h3,
+.quiz-html-content h4,
+.quiz-html-content h5,
+.quiz-html-content h6 {
   font-weight: 600;
   margin-top: 1em;
   margin-bottom: 0.5em;
+  color: inherit;
 }
+
+.quiz-html-content h1 { font-size: 1.5em; }
+.quiz-html-content h2 { font-size: 1.3em; }
+.quiz-html-content h3 { font-size: 1.1em; }
+.quiz-html-content h4 { font-size: 1em; }
 
 .quiz-html-content ul,
 .quiz-html-content ol {
@@ -630,11 +671,120 @@ html {
   margin-top: 0.25em;
 }
 
-/* Reset span colors - let CSS vars handle colors */
-.quiz-html-content span[style*="color: black"] {
+.quiz-html-content blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1em;
+  margin: 0.75em 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.quiz-html-content pre,
+.quiz-html-content code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  background-color: var(--bg-tertiary);
+  border-radius: 0.25em;
+}
+
+.quiz-html-content code {
+  padding: 0.2em 0.4em;
+}
+
+.quiz-html-content pre {
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  margin: 0.75em 0;
+}
+
+.quiz-html-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.quiz-html-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75em 0;
+}
+
+.quiz-html-content table th,
+.quiz-html-content table td {
+  border: 1px solid var(--border-primary);
+  padding: 0.5em;
+  text-align: left;
+}
+
+.quiz-html-content table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 600;
+}
+
+.quiz-html-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  margin: 0.5em 0;
+}
+
+.quiz-html-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.quiz-html-content a:hover {
+  opacity: 0.8;
+}
+
+.quiz-html-content sup {
+  vertical-align: super;
+  font-size: 0.75em;
+}
+
+.quiz-html-content sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+}
+
+/* Reset inline colors in dark mode - force inherit from parent */
+.dark .quiz-html-content span[style*="color"],
+.dark .quiz-html-content font[color],
+.dark .quiz-html-content *[style*="color: black"],
+.dark .quiz-html-content *[style*="color: rgb(0, 0, 0)"],
+.dark .quiz-html-content *[style*="color:#000"],
+.dark .quiz-html-content *[style*="color: #000"],
+.dark .quiz-html-content *[style*="color:black"] {
   color: inherit !important;
 }
 
-.quiz-html-content span[style*="color: rgb(0, 0, 0)"] {
+/* Reset light background colors in dark mode */
+.dark .quiz-html-content *[style*="background-color: white"],
+.dark .quiz-html-content *[style*="background-color: rgb(255, 255, 255)"],
+.dark .quiz-html-content *[style*="background-color:#fff"],
+.dark .quiz-html-content *[style*="background-color: #fff"],
+.dark .quiz-html-content *[style*="background:white"] {
+  background-color: transparent !important;
+}
+
+/* Reset span colors in light mode too for consistency */
+.quiz-html-content span[style*="color: black"],
+.quiz-html-content span[style*="color: rgb(0, 0, 0)"],
+.quiz-html-content *[style*="color:#000000"],
+.quiz-html-content *[style*="color: #000000"] {
   color: inherit !important;
+}
+
+/* Handle font tags from legacy content */
+.quiz-html-content font {
+  color: inherit !important;
+  font-family: inherit !important;
+}
+
+/* Ensure proper spacing for consecutive elements */
+.quiz-html-content > *:first-child {
+  margin-top: 0;
+}
+
+.quiz-html-content > *:last-child {
+  margin-bottom: 0;
 }

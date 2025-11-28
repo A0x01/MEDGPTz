@@ -49,6 +49,8 @@ export interface QuizResultsData {
   score: number;
   totalQuestions: number;
   correctAnswers: number;
+  wrongAnswers: number;
+  skippedAnswers: number;
 }
 
 export function QuizInterfaceAPI({
@@ -211,6 +213,8 @@ export function QuizInterfaceAPI({
         score: attempt.score_percentage,
         totalQuestions: attempt.total_questions,
         correctAnswers: attempt.correct_answers,
+        wrongAnswers: attempt.wrong_answers,
+        skippedAnswers: attempt.skipped_answers,
       };
 
       onComplete(results);

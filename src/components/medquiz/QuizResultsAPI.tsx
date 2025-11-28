@@ -15,7 +15,8 @@ import {
   X,
   ArrowRight,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  Minus
 } from 'lucide-react';
 import { QuizResultsData } from './QuizInterfaceAPI';
 
@@ -35,7 +36,9 @@ export function QuizResultsAPI({ results, onRetry, onRetryIncorrect, onHome }: Q
     timeSpent,
     score,
     totalQuestions,
-    correctAnswers
+    correctAnswers,
+    wrongAnswers,
+    skippedAnswers
   } = results;
 
   const formatTime = (seconds: number) => {
@@ -44,8 +47,9 @@ export function QuizResultsAPI({ results, onRetry, onRetryIncorrect, onHome }: Q
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const incorrectCount = totalQuestions - correctAnswers;
-  const skippedCount = totalQuestions - answers.size;
+  // Use actual values from API, not computed
+  const incorrectCount = wrongAnswers;
+  const skippedCount = skippedAnswers;
 
   // Get performance rating
   const getPerformanceRating = () => {
@@ -115,7 +119,7 @@ export function QuizResultsAPI({ results, onRetry, onRetryIncorrect, onHome }: Q
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-4 gap-4">
             <div className="text-center">
               <div className="w-12 h-12 rounded-full bg-[var(--color-success)]/10 flex items-center justify-center mx-auto mb-2">
                 <Check className="w-6 h-6 text-[var(--color-success)]" />
@@ -133,11 +137,19 @@ export function QuizResultsAPI({ results, onRetry, onRetryIncorrect, onHome }: Q
             </div>
 
             <div className="text-center">
+              <div className="w-12 h-12 rounded-full bg-[var(--color-warning)]/10 flex items-center justify-center mx-auto mb-2">
+                <Minus className="w-6 h-6 text-[var(--color-warning)]" />
+              </div>
+              <div className="text-2xl font-bold text-[var(--color-warning)]">{skippedCount}</div>
+              <div className="text-sm text-[var(--color-text-secondary)]">Skipped</div>
+            </div>
+
+            <div className="text-center">
               <div className="w-12 h-12 rounded-full bg-[var(--color-text-secondary)]/10 flex items-center justify-center mx-auto mb-2">
                 <Clock className="w-6 h-6 text-[var(--color-text-secondary)]" />
               </div>
               <div className="text-2xl font-bold text-[var(--color-text)]">{formatTime(timeSpent)}</div>
-              <div className="text-sm text-[var(--color-text-secondary)]">Time Spent</div>
+              <div className="text-sm text-[var(--color-text-secondary)]">Time</div>
             </div>
           </div>
         </div>
